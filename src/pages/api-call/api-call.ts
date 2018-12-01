@@ -9,19 +9,19 @@ import 'rxjs/add/operator/map';
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
-
+console.log('ionViewDidLoad ApiCallPage: ', new Date());
 @IonicPage()
 @Component({
   selector: 'page-api-call',
   templateUrl: 'api-call.html',
 })
+
 export class ApiCallPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http) {
   }
-
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ApiCallPage');
+    console.log('ionViewDidLoad ApiCallPage: ', new Date());
   }
   movieList: any;
   endTime;

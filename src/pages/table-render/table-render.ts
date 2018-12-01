@@ -11,7 +11,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 export interface Config {
 	technologies: string;
 }
-
+console.log('ionViewDidLoad TableRenderPage', new Date());
 @IonicPage()
 @Component({
   selector: 'page-table-render',
@@ -30,15 +30,21 @@ export class TableRenderPage {
       { name: 'Company' }
     ];
   }
-
+  endTime;
+  startTime; 
+  timeDiff;
   ionViewDidLoad() {
+    this.startTime = new Date();
     this._HTTP
       .get<Config>('../../assets/data/technologies.json')
       .subscribe((data) =>
       {
-         this.rows = data.technologies;
-      });
-    console.log('ionViewDidLoad TableRenderPage');
+        this.endTime = new Date()
+        this.timeDiff = (this.endTime - this.startTime)/1000; //in ms
+        console.log('Time difference: ', this.timeDiff)
+        this.rows = data.technologies;
+      })
+    console.log('ionViewDidLoad TableRenderPage', new Date());
   }
 
 }

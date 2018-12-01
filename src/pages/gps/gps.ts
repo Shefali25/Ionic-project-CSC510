@@ -8,7 +8,7 @@ import {Geolocation} from '@ionic-native/geolocation'
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
-
+console.log('ionViewDidLoad GPSPage: ', new Date());
 @IonicPage()
 @Component({
   selector: 'page-gps',
@@ -28,7 +28,9 @@ export class GpsPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private geolocation: Geolocation) {
   }
-
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad GPSPage: ', new Date());
+  }
   // ionViewDidLoad() {
   //   console.log('ionViewDidLoad GpsPage');
   // }
@@ -74,9 +76,9 @@ export class GpsPage {
       this.heading = resp.coords.heading;
       this.speed = resp.coords.speed;
      }).catch((error) => {
-       console.log('Error getting location', error);
+       console.log('Error getting location', error.message);
      });
-
+    
     // Following from the documentation
     // watchees the device's current location
    let watch = this.geolocation.watchPosition();

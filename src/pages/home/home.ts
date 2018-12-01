@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 
+console.log('ionViewDidLoad CameraPage: ', new Date());
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -11,7 +12,9 @@ export class HomePage {
   constructor(public navCtrl: NavController, private camera: Camera) {
     
   }
-
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad CameraPage: ', new Date());
+  }
   // openCamera(selection: any) {
   //   const options: CameraOptions = {
   //     quality: 100,
